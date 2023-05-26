@@ -17,7 +17,7 @@ router.post("/",  (req, res) => {
 });
 
 // Update a post by ID using authenticated user's ID
-router.put("/:id", withAuth, (req, res) => {
+router.put("/:id", (req, res) => {
   console.log(req.body, req.params.id)
   Post.update(req.body, {
     where: {
