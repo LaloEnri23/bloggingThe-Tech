@@ -39,7 +39,7 @@ router.put("/:id", (req, res) => {
 });
 
 // Delete a post by ID using authenticated user's ID
-router.delete("/:id", withAuth, (req, res) => {
+router.delete("/:id", (req, res) => {
   console.log(req.body, req.params.id)
   Post.destroy({
     where: {
