@@ -4,7 +4,7 @@ const { Post, Comment, User } = require("../../models/");
 const withAuth = require("../../utils/auth");
 
 // Create a new post with the authenticated user's ID
-router.post("/", withAuth, (req, res) => {
+router.post("/",  (req, res) => {
   const body = req.body;
   console.log(req.session.userId);
   Post.create({ ...body, userId: req.session.userId })
