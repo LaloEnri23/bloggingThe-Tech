@@ -4,7 +4,7 @@ const { Post, Comment, User } = require("../../models/");
 const withAuth = require("../../utils/auth");
 
 // Create a new post with the authenticated user's ID
-router.post("/", withAuth, (req, res) => {
+router.post("/",  (req, res) => {
   const body = req.body;
   console.log(req.session.userId);
   Post.create({ ...body, userId: req.session.userId })
@@ -17,7 +17,7 @@ router.post("/", withAuth, (req, res) => {
 });
 
 // Update a post by ID using authenticated user's ID
-router.put("/:id", withAuth, (req, res) => {
+router.put("/:id",  (req, res) => {
   console.log(req.body, req.params.id)
   Post.update(req.body, {
     where: {
@@ -39,7 +39,7 @@ router.put("/:id", withAuth, (req, res) => {
 });
 
 // Delete a post by ID using authenticated user's ID
-router.delete("/:id", withAuth, (req, res) => {
+router.delete("/:id",  (req, res) => {
   console.log(req.body, req.params.id)
   Post.destroy({
     where: {

@@ -4,7 +4,7 @@ const { Comment } = require("../../models/");
 const withAuth = require("../../utils/auth");
 
 // Create a new comment with the authenticated user's ID
-router.post("/", withAuth, (req, res) => {
+router.post("/",  (req, res) => {
 
  // Create a new comment with the request data and the authenticated user's ID
 Comment.create({ ...req.body, userId: req.session.userId })

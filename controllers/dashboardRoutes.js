@@ -4,7 +4,7 @@ const { Post } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Retrieve all posts of the authenticated user
-router.get("/", withAuth, (req, res) => {
+router.get("/",  (req, res) => {
     console.log('We are here')
     Post.findAll({
         where: {
@@ -30,14 +30,14 @@ router.get("/", withAuth, (req, res) => {
   });
 
 // Render the "new-post" view for creating a new post
-router.get("/new", withAuth, (req, res) => {
+router.get("/new", (req, res) => {
     res.render("new-post", {
         layout: "dashboard"
     });
 });
 
 // Retrieve a post by ID and render the "edit-post" view
-router.get("/edit/:id", withAuth, (req, res) => {
+router.get("/edit/:id",  (req, res) => {
     Post.findByPk(req.params.id)
         .then(dbPostData => {
             if (dbPostData) {
